@@ -26,7 +26,9 @@ Cinq pages (Accueil, Savoir-faire, Réalisations, L'atelier, Contact), chacune d
 | `src/content/` | Tous les contenus, en JSON |
 | `src/assets/uploads/` | Médiathèque du CMS |
 | `src/assets/brand/` | Logo et symbole |
-| `public/admin/` | Sveltia CMS |
+| `public/admin/` | Page d'entrée de Sveltia CMS |
+| `src/cms/config.yml` | Configuration du CMS, servie sur `/admin/config.yml` |
+| `api/` | Service de connexion GitHub du CMS (fonctions Vercel) |
 
 ## Contenus
 
@@ -40,7 +42,7 @@ La structure est définie à trois endroits, **à modifier ensemble** :
 
 | Fichier | Rôle |
 | --- | --- |
-| `public/admin/config.yml` | Formulaires du CMS et limites vérifiées à la saisie |
+| `src/cms/config.yml` | Formulaires du CMS et limites vérifiées à la saisie |
 | `src/lib/content.ts` | Validation au build des réglages et des pages |
 | `src/content.config.ts` | Validation au build des réalisations |
 
@@ -59,8 +61,25 @@ Une fois l'adresse d'un service de formulaire renseignée (Formspree, Web3Forms,
 
 ## Sveltia CMS
 
-L'interface est servie sur `/admin/`. Elle écrit directement dans la branche `main` du dépôt GitHub : chaque enregistrement déclenche un build chez l'hébergeur.
-La connexion demande un compte GitHub ayant accès au dépôt, et soit un jeton d'accès personnel, soit un service OAuth à déployer une fois (voir la documentation de Sveltia CMS).
+L'interface est servie sur `/admin/`. Elle écrit directement dans la branche `main` du dépôt GitHub : chaque enregistrement déclenche un build sur Vercel.
+
+### Connexion avec GitHub
+
+Le service de connexion est hébergé avec le site : `api/auth.js` et `api/callback.js`, exposés sur `/auth` et `/callback`. Il reprend le protocole du service officiel `sveltia-cms-auth`. Mise en place, une seule fois :
+
+1. Créer une application OAuth sur GitHub (`https://github.com/settings/applications/new`) avec pour « Authorization callback URL » l'adresse du site suivie de `/callback`.
+2. Dans Vercel, ajouter les variables d'environnement `GITHUB_CLIENT_ID` et `GITHUB_CLIENT_SECRET` (cette dernière en variable sensible), puis redéployer.
+
+| Variable | Rôle |
+| --- | --- |
+| `GITHUB_CLIENT_ID` | Identifiant de l'application OAuth |
+| `GITHUB_CLIENT_SECRET` | Secret de l'application OAuth |
+| `ALLOWED_DOMAINS` | Facultative. Domaines autorisés à se connecter, séparés par des virgules (`*` accepté). Par défaut : uniquement le domaine sur lequel le service répond |
+| `SITE_URL` | Adresse du site. À défaut, le domaine de production Vercel est utilisé pour le CMS |
+
+L'adresse du service est écrite automatiquement dans `/admin/config.yml` au build (`src/pages/admin/config.yml.ts`). Chaque personne qui se connecte doit avoir un accès en écriture au dépôt.
+
+En développement (`npm run dev`), aucune adresse n'est ajoutée : dans Chrome ou Edge, le CMS propose de travailler sur le dépôt local.
 
 ## Transition de page
 

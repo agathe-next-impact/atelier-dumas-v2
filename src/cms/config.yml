@@ -1,6 +1,8 @@
 # Sveltia CMS · Atelier Dumas
 # Les limites déclarées ici doivent rester identiques à celles de
 # src/lib/content.ts (réglages et pages) et de src/content.config.ts (réalisations).
+# Ce fichier est servi sur /admin/config.yml par src/pages/admin/config.yml.ts,
+# qui y ajoute l'adresse du service de connexion GitHub en production.
 
 backend:
   name: github
