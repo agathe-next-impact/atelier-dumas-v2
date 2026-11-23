@@ -1,0 +1,41 @@
+{
+  "titre": "École de musique",
+  "lieu": "Saignes · Cantal (15)",
+  "categorie": "Public",
+  "type": "Réhabilitation",
+  "periode": "2025",
+  "texte": "Réhabilitation de l'école de musique. La plâtrerie a été réalisée en 2024 par Viallant Loge. Atelier Dumas a achevé les peintures en 2025, en sous-traitance.",
+  "fiche": [
+    {
+      "libelle": "Maître d'ouvrage",
+      "valeur": "Communauté de communes Sumène Artense"
+    },
+    {
+      "libelle": "Opération",
+      "valeur": "Réhabilitation de l'école de musique"
+    },
+    {
+      "libelle": "Intervention",
+      "valeur": "Peintures, en sous-traitance de Viallant Loge"
+    },
+    {
+      "libelle": "Période",
+      "valeur": "2025"
+    }
+  ],
+  "photos": [
+    {
+      "image": "/src/assets/uploads/saignes-1.webp",
+      "legende": "Salle de pratique",
+      "alt": "Salle au mur rouge et plafond acoustique sombre"
+    },
+    {
+      "image": "/src/assets/uploads/saignes-2.webp",
+      "legende": "Salle sous combles",
+      "alt": "Salle sous combles, murs blancs, porte vert d'eau et charpente apparente"
+    }
+  ],
+  "schemaPlafond": false,
+  "ordre": 70,
+  "publie": true
+}

@@ -1,0 +1,27 @@
+---
+import PageTexte from '../components/PageTexte.astro';
+import { site } from '../lib/content';
+---
+
+<PageTexte page="confidentialite" nom="Données personnelles" surtitre="Informations légales" titreLigne1="Données" titreLigne2="personnelles">
+  <div>
+    <h2>Données collectées</h2>
+    <p>Le formulaire de contact recueille votre nom, vos coordonnées et la description de votre projet. Ces informations servent uniquement à répondre à votre demande.</p>
+  </div>
+  <div>
+    <h2>Responsable du traitement</h2>
+    <p>{site.nom}, {site.siege.rue}, {site.siege.codePostal} {site.siege.ville}.</p>
+  </div>
+  <div>
+    <h2>Durée de conservation</h2>
+    <p class="vide">[À compléter : durée de conservation des demandes de contact]</p>
+  </div>
+  <div>
+    <h2>Mesure d'audience et cookies</h2>
+    <p class="vide">[À compléter : outil de mesure d'audience utilisé, ou absence de mesure]</p>
+  </div>
+  <div>
+    <h2>Vos droits</h2>
+    <p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données en écrivant à <a href={`mailto:${site.email}`}>{site.email}</a>. Vous pouvez aussi saisir la CNIL.</p>
+  </div>
+</PageTexte>

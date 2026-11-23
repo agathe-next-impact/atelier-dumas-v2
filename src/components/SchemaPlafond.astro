@@ -1,0 +1,23 @@
+---
+// Coupe de principe d'un plafond abaissé, affichée quand un chantier n'a pas encore de photo.
+const zig = 'M90 140' + 'l10-8 10 8'.repeat(21);
+---
+
+<div class="schema">
+  <svg viewBox="0 0 780 380" role="img" aria-label="Coupe de principe : plafond existant à 8 mètres, nouveau plafond isolé à 5 mètres">
+    <g fill="none" stroke="#000000" stroke-width="1">
+      <path d="M60 320h480M90 320V130L300 48l210 82v190"></path>
+      <path d="M90 150h420" stroke="#9C654E" stroke-width="2"></path>
+      <path d={zig} stroke="#9C654E" opacity=".7"></path>
+      <g stroke-dasharray="4 4" opacity=".55"><path d="M300 48v272M170 150v170"></path></g>
+      <path d="M296 48h8M296 320h8M166 150h8M166 320h8"></path>
+    </g>
+    <text x="528" y="52">8,00 m au plus haut</text>
+    <text x="528" y="70" opacity=".5">Plafond existant</text>
+    <text x="182" y="240">5,00 m</text>
+    <text x="528" y="118" opacity=".5">Volume qui n'est</text>
+    <text x="528" y="134" opacity=".5">plus chauffé</text>
+    <text x="528" y="154" fill="#9C654E">Nouveau plafond isolé</text>
+    <text x="60" y="350" opacity=".5">Schéma de principe · coupe</text>
+  </svg>
+</div>

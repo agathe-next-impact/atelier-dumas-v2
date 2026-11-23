@@ -1,0 +1,10 @@
+---
+import PageTexte from '../components/PageTexte.astro';
+import { pages, site, tel } from '../lib/content';
+const p = pages.contact;
+---
+
+<PageTexte page="merci" nom={p.confirmationTitre} surtitre="Contact" titreLigne1={p.confirmationTitre} indexation={false}>
+  <p class="lead">{p.confirmationTexte}</p>
+  <p>Pour une demande urgente : <a href={tel()}>{site.telephone}</a>.</p>
+</PageTexte>

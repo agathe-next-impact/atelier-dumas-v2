@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import { pages, site, tel } from '../lib/content';
+const p = pages.contact;
+const distant = site.formulaireEndpoint !== '';
+const ouverts = site.horaires.filter((h) => !h.ferme);
+---
+
+<Base page="contact" nom="Contact" titre={p.seo.titre} description={p.seo.description} finNue>
+  <section class="panel contact">
+    <div class="sheet">
+      <div class="cell l">
+        <div class="mono dim" data-r>[04] {p.surtitre}</div>
+        <div>
+          <h1 data-split>{p.titreLigne1}<br />{p.titreLigne2}</h1>
+          <p class="lead" data-r style="margin-top:18px;--i:2">{p.texte}</p>
+        </div>
+        <div data-r style="--i:3;display:grid;gap:6px">
+          <a class="big" href={tel()}>{site.telephone}</a>
+          <a class="big" href={`mailto:${site.email}`} style="font-size:clamp(16px,1.5vw,22px)">{site.email}</a>
+        </div>
+        <dl class="spec mono" data-r style="--i:4">
+          <dt>Adresse</dt><dd>{site.siege.rue}, {site.siege.codePostal} {site.siege.ville}</dd>
+          <dt>Accueil</dt><dd>{ouverts.map((h, i) => (<>{i > 0 && <br />}{h.jours} : {h.heures}</>))}</dd>
+        </dl>
+      </div>
+      <div class="bl" style="min-height:0">
+        <form id="form" novalidate data-endpoint={site.formulaireEndpoint} data-email={site.email} data-telephone={site.telephone} data-secours={p.noteSecours}>
+          <label><span class="mono dim">Vous êtes</span>
+            <select name="profil">{p.profils.map((o) => <option>{o}</option>)}</select></label>
+          <label><span class="mono dim">Nom</span><input name="nom" autocomplete="name" required /></label>
+          <label><span class="mono dim">Téléphone</span><input name="telephone" type="tel" autocomplete="tel" /></label>
+          <label><span class="mono dim">{distant ? 'E-mail' : 'Commune du chantier'}</span>
+            {distant ? <input name="email" type="email" autocomplete="email" required /> : <input name="commune" />}</label>
+          {distant && <label class="full"><span class="mono dim">Commune du chantier</span><input name="commune" /></label>}
+          <label class="full"><span class="mono dim">Nature des travaux</span>
+            <select name="travaux">{p.travaux.map((o) => <option>{o}</option>)}</select></label>
+          <label class="full"><span class="mono dim">Votre projet</span><textarea name="message" rows="5" placeholder={p.aideMessage}></textarea></label>
+          <input type="text" name="site_web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px" />
+          <div class="send">
+            <p class="note" id="formnote">{distant ? `Votre demande est transmise à ${site.email}.` : `${p.noteMessagerie} Adresse : ${site.email}.`}</p>
+            <button class="btn solid mono" type="submit"><span>{distant ? p.boutonEnvoi : p.bouton}</span><span>→</span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>

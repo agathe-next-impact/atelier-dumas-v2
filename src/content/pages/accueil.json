@@ -1,0 +1,111 @@
+{
+  "seo": {
+    "titre": "",
+    "description": ""
+  },
+  "hero": {
+    "titreLigne1": "Du plâtre à la peinture,",
+    "titreLigne2": "un seul atelier",
+    "texte": "Atelier Dumas réalise la plâtrerie, l'isolation, la peinture et les revêtements de vos chantiers. Pour les particuliers, les professionnels et les collectivités, depuis Bort-les-Orgues.",
+    "bouton": "Demander un devis",
+    "coordonnees": "45.40° N · 2.50° E",
+    "diapos": [
+      {
+        "image": "/src/assets/uploads/madic-1.webp",
+        "alt": "Grande salle rénovée de La Grange à Madic : murs vert tendre et crème, plafond à panneaux bois",
+        "legende": "Salle La Grange · Madic (15)"
+      },
+      {
+        "image": "/src/assets/uploads/picherande-1.webp",
+        "alt": "Salle de vie de la micro-crèche des Hautes Terres à Picherande, fresque florale et menuiseries colorées",
+        "legende": "Micro-crèche des Hautes Terres · Picherande (63)"
+      },
+      {
+        "image": "/src/assets/uploads/val-1.webp",
+        "alt": "Salle du restaurant Relais de Val à Lanobre : mur jaune, plafond sombre et décor mural",
+        "legende": "Relais de Val · Lanobre (15)"
+      },
+      {
+        "image": "/src/assets/uploads/atelier-facade.webp",
+        "alt": "Façade de l'atelier, 301 avenue de la Gare à Bort-les-Orgues",
+        "legende": "L'atelier · Bort-les-Orgues (19)"
+      }
+    ]
+  },
+  "bandeau": [
+    "Plâtrerie",
+    "Isolation",
+    "Peinture",
+    "Revêtements",
+    "Ravalement",
+    "Qualibat RGE",
+    "Intérieur et extérieur",
+    "Particuliers et collectivités"
+  ],
+  "manifeste": {
+    "surtitre": "L'atelier",
+    "texte": "Treize compagnons, quatre métiers du second œuvre et un seul interlocuteur. L'atelier prépare les supports, isole, monte les cloisons et signe les finitions, en neuf comme en rénovation.",
+    "bouton": "Découvrir l'atelier",
+    "image": "/src/assets/uploads/atelier-entree.webp",
+    "alt": "Entrée de l'atelier : enseigne rouge Atelier Dumas, plâtrerie, peinture, isolation, intérieur et extérieur",
+    "legende": "301 avenue de la Gare"
+  },
+  "metiers": {
+    "titreLigne1": "Quatre métiers,",
+    "titreLigne2": "une même exigence de finition",
+    "texte": "Une seule équipe enchaîne les lots de second œuvre. Moins d'intervenants à coordonner, un planning tenu de bout en bout."
+  },
+  "chiffres": {
+    "surtitre": "Repères",
+    "titreLigne1": "Une équipe reprise,",
+    "titreLigne2": "puis renforcée",
+    "texte": "En janvier 2025, Atelier Dumas a repris l'agence de Bort-les-Orgues de Viallant Loge. Les neuf salariés sont restés. Ils sont treize aujourd'hui.",
+    "items": [
+      {
+        "valeur": 13,
+        "prefixe": "",
+        "suffixe": "",
+        "libelle": "Collaborateurs"
+      },
+      {
+        "valeur": 9,
+        "prefixe": "",
+        "suffixe": "/9",
+        "libelle": "Salariés conservés à la reprise"
+      },
+      {
+        "valeur": 4,
+        "prefixe": "",
+        "suffixe": "",
+        "libelle": "Métiers du second œuvre"
+      },
+      {
+        "valeur": 3,
+        "prefixe": "",
+        "suffixe": "",
+        "libelle": "Départements : Corrèze, Cantal, Puy-de-Dôme"
+      },
+      {
+        "valeur": 50,
+        "prefixe": "~",
+        "suffixe": "km",
+        "libelle": "Rayon d'intervention"
+      },
+      {
+        "valeur": 4,
+        "prefixe": "RGE",
+        "suffixe": "",
+        "libelle": "Qualifications Qualibat"
+      }
+    ]
+  },
+  "terrain": {
+    "titre": "Sur le terrain",
+    "bouton": "Toutes les réalisations",
+    "projets": [
+      "madic",
+      "picherande",
+      "pole-ydes"
+    ]
+  }
+}

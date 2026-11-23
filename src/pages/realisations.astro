@@ -1,0 +1,105 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import SchemaPlafond from '../components/SchemaPlafond.astro';
+import { pages, chantiers, pad } from '../lib/content';
+import { image, adresse, portrait } from '../lib/images';
+
+const p = pages.realisations;
+const liste = await chantiers();
+const total = liste.length;
+// Adresses optimisées de chaque photo, pour la galerie qui change d'image dans le navigateur.
+const galeries = await Promise.all(
+  liste.map((c) =>
+    Promise.all(
+      c.photos.map(async (ph) => ({
+        src: await adresse(ph.image, 1600),
+        vignette: await adresse(ph.image, 240),
+        legende: ph.legende,
+        alt: ph.alt,
+        portrait: portrait(ph.image),
+      })),
+    ),
+  ),
+);
+---
+
+<Base page="realisations" nom="Réalisations" titre={p.seo.titre} description={p.seo.description}>
+  <section class="panel rindex">
+    <div class="sheet">
+      <div class="cell l">
+        <div class="mono dim" data-r>[02] {p.intro.surtitre}</div>
+        <div>
+          <h1 data-split>{p.intro.titreLigne1}<br />{p.intro.titreLigne2}</h1>
+          <p class="lead" data-r style="margin-top:20px;--i:2">{p.intro.texte}</p>
+        </div>
+        <div class="mono dim" data-r style="--i:3">{p.intro.aide}</div>
+      </div>
+      <div class="cell r bl">
+        <div class="idx" data-r>
+          {liste.map((c, i) => (
+            <a href={`#${c.id}`}>
+              <span class="mono n">[{pad(i + 1)}]</span><span class="t">{c.titre}</span>
+              <span class="mono m">{c.lieu.split(' · ')[0]} · {c.type}</span><span class="mono m">{c.periode}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {liste.map((c, i) => {
+    const g = galeries[i];
+    return (
+      <section class="panel proj" id={c.id} data-galerie={g.length ? JSON.stringify(g) : undefined}>
+        <div class="sheet">
+          <div class="info">
+            <div class="tag mono bb"><span>{c.categorie} · {c.type}</span><span>[{pad(i + 1)} / {pad(total)}]</span></div>
+            <div class="body">
+              <div>
+                <h2 data-split>{c.titre}</h2>
+                <div class="mono place" data-r>{c.lieu}</div>
+                <p data-r style="--i:1">{c.texte}</p>
+              </div>
+              <dl class="spec mono" data-r style="--i:2">
+                {c.fiche.map((f) => (<><dt>{f.libelle}</dt><dd>{f.valeur}</dd></>))}
+              </dl>
+            </div>
+          </div>
+          <div class="view2 bl">
+            <div class="main">
+              {g.length > 0 ? (
+                <>
+                  <Image src={image(c.photos[0].image)} alt={c.photos[0].alt} width={1600} format="webp" loading="lazy" class:list={[{ fit: g[0].portrait }]} />
+                  <div class="cap mono"><span class="dim n">[Fig. 01 / {pad(g.length)}]</span> <span class="c">{g[0].legende}</span></div>
+                  {g.length > 1 && (
+                    <div class="arrows">
+                      <button aria-label="Photo précédente" data-dir="-1">←</button>
+                      <button aria-label="Photo suivante" data-dir="1">→</button>
+                    </div>
+                  )}
+                </>
+              ) : c.schemaPlafond ? (
+                <>
+                  <SchemaPlafond />
+                  <div class="cap mono"><span class="dim">[Schéma]</span> Plafond abaissé de 8 m à 5 m</div>
+                </>
+              ) : null}
+            </div>
+            {g.length > 0 ? (
+              <div class="thumbs bt">
+                {g.map((ph, j) => (
+                  <button class:list={[{ on: j === 0 }]} data-j={j} aria-label={ph.legende}>
+                    <img src={ph.vignette} alt="" loading="lazy" />
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div class="mono dim bt" style="padding:12px 16px">{p.sansPhoto}</div>
+            )}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+</Base>

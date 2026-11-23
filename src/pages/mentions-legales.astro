@@ -1,0 +1,31 @@
+---
+import PageTexte from '../components/PageTexte.astro';
+import { site, tel } from '../lib/content';
+const manque = (v: string) => v || '[À compléter]';
+---
+
+<PageTexte page="mentions-legales" nom="Mentions légales" surtitre="Informations légales" titreLigne1="Mentions" titreLigne2="légales">
+  <div>
+    <h2>Éditeur du site</h2>
+    <p>{site.nom}, {site.formeJuridique} au capital de {site.capital}.<br />
+      Siège social : {site.siege.rue}, {site.siege.codePostal} {site.siege.ville}.<br />
+      SIREN {site.siren} · {site.rcs}{site.tva && <> · TVA intracommunautaire {site.tva}</>}.<br />
+      Téléphone : <a href={tel()}>{site.telephone}</a> · E-mail : <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+  </div>
+  <div>
+    <h2>Direction de la publication</h2>
+    <p class:list={[{ vide: !site.directionPublication }]}>{manque(site.directionPublication)}</p>
+  </div>
+  <div>
+    <h2>Hébergement</h2>
+    <p class:list={[{ vide: !site.hebergeur }]}>{manque(site.hebergeur)}</p>
+  </div>
+  <div>
+    <h2>Assurance professionnelle</h2>
+    <p class="vide">[À compléter : assureur, numéro de contrat et couverture géographique de la garantie décennale]</p>
+  </div>
+  <div>
+    <h2>Propriété intellectuelle</h2>
+    <p>Les textes, photographies et éléments graphiques de ce site sont la propriété de {site.nom} ou de leurs auteurs. Toute reproduction sans accord préalable est interdite.</p>
+  </div>
+</PageTexte>

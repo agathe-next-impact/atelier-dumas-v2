@@ -1,0 +1,119 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Fig from '../components/Fig.astro';
+import { pages, chantiers, pad } from '../lib/content';
+import { image } from '../lib/images';
+import { pictogrammes } from '../lib/pictogrammes';
+
+const p = pages.accueil;
+const sf = pages.savoirFaire;
+const tous = await chantiers();
+const terrain = p.terrain.projets.map((id) => {
+  const c = tous.find((x) => x.id === id);
+  if (!c) throw new Error(`Accueil · « Sur le terrain » : la réalisation « ${id} » est introuvable ou non publiée.`);
+  if (!c.photos.length) throw new Error(`Accueil · « Sur le terrain » : la réalisation « ${id} » n'a pas de photo.`);
+  return c;
+});
+const bandeau = [...p.bandeau, ...p.bandeau];
+---
+
+<Base page="accueil" nom="Accueil" titre={p.seo.titre} description={p.seo.description}>
+  <section class="panel hero">
+    <div class="sheet">
+      <div class="stage" id="stage">
+        {p.hero.diapos.map((d, i) => (
+          <Image src={image(d.image)} alt={d.alt} width={1600} format="webp" class:list={[{ on: i === 0 }]} data-cap={d.legende} loading={i === 0 ? 'eager' : 'lazy'} />
+        ))}
+        <div class="cap mono"><span class="dim" id="stagen">[Fig. 01]</span> <span id="stagecap">{p.hero.diapos[0].legende}</span></div>
+        {p.hero.coordonnees && <div class="geo mono dim">{p.hero.coordonnees}</div>}
+      </div>
+      <div class="band bt">
+        <h1 data-split>{p.hero.titreLigne1}<br />{p.hero.titreLigne2}</h1>
+        <p class="txt bl" data-r>{p.hero.texte}</p>
+        <a class="go bl mono" href="/contact/"><span>{p.hero.bouton}</span><span>→</span></a>
+        <div class="marq mono bl bt"><div>{bandeau.map((m) => <span>{m}</span>)}</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel split">
+    <div class="sheet">
+      <Fig src={p.manifeste.image} alt={p.manifeste.alt} legende={p.manifeste.legende} />
+      <div class="say bl">
+        <div class="mono dim" data-r>[{p.manifeste.surtitre}]</div>
+        <h2 data-split data-fill>{p.manifeste.texte}</h2>
+        <div data-r style="--i:3"><a class="btn mono" href="/atelier/"><span>{p.manifeste.bouton}</span><span>→</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel cards">
+    <div class="sheet">
+      <div class="cell top bb">
+        <h2 data-split>{p.metiers.titreLigne1}<br />{p.metiers.titreLigne2}</h2>
+        <p data-r>{p.metiers.texte}</p>
+      </div>
+      <div class="grid">
+        {sf.metiers.map((m, i) => (
+          <a class:list={['card', { bl: i > 0 }]} href={`/savoir-faire/#metier-${i + 1}`}>
+            <div class="tag mono db"><span>{m.nom}</span><span>[{pad(i + 1)}]</span></div>
+            <div class="draw" data-r style={`--i:${i}`}>
+              <svg viewBox="0 0 200 200" aria-hidden="true" set:html={pictogrammes[m.pictogramme]} />
+            </div>
+            <div class="body dt">
+              <h3 data-split>{m.accroche}</h3>
+              <p data-r style={`--i:${i + 2}`}>{m.resume}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="panel nums">
+    <div class="sheet">
+      <div class="cell intro">
+        <div>
+          <div class="mono dim" data-r>[{p.chiffres.surtitre}]</div>
+          <h2 data-split style="margin-top:14px">{p.chiffres.titreLigne1}<br />{p.chiffres.titreLigne2}</h2>
+        </div>
+        <p data-r style="--i:2">{p.chiffres.texte}</p>
+      </div>
+      <div class="grid bl">
+        {p.chiffres.items.map((n, i) => (
+          <div class:list={['num', { bl: i % 3 > 0, bt: i > 2 }]}>
+            <span class="mono dim">[{pad(i + 1)}]</span>
+            <div>
+              <b data-r style={`--i:${i}`}>
+                {n.prefixe && (n.prefixe.length > 1 ? <small style="margin:0 .28em 0 0">{n.prefixe}</small> : n.prefixe)}<span data-count={n.valeur}>{n.valeur}</span>{n.suffixe && <small>{n.suffixe.startsWith('/') ? n.suffixe : ' ' + n.suffixe}</small>}
+              </b>
+              <div class="mono" style="margin-top:10px;color:var(--ink)">{n.libelle}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="panel teaser">
+    <div class="sheet">
+      <div class="cell top bb">
+        <h2 data-split>{p.terrain.titre}</h2>
+        <a class="btn mono" href="/realisations/" data-r><span>{p.terrain.bouton}</span><span>→</span></a>
+      </div>
+      <div class="grid">
+        {terrain.map((c, i) => (
+          <a class:list={['tz', { bl: i > 0 }]} href={`/realisations/#${c.id}`}>
+            <div class="tag mono"><span>{c.categorie} · {c.type}</span><span>{c.periode}</span></div>
+            <Fig src={c.photos[0].image} alt={c.photos[0].alt} i={i} largeur={1200} />
+            <div class="ft">
+              <div><h3>{c.titre}</h3><div class="mono acc" style="margin-top:6px">{c.lieu}</div></div>
+              <span class="mono">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

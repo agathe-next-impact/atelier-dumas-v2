@@ -1,0 +1,70 @@
+{
+  "titre": "Relais de Val",
+  "lieu": "Lanobre · Cantal (15)",
+  "categorie": "Privé",
+  "type": "Rénovation",
+  "periode": "2025",
+  "texte": "Restaurant rénové au printemps 2025 à la demande de son propriétaire, dans la perspective de sa mise en vente. La décoration a été proposée par Atelier Papon Architecture.",
+  "fiche": [
+    {
+      "libelle": "Maître d'ouvrage",
+      "valeur": "Propriétaire privé"
+    },
+    {
+      "libelle": "Opération",
+      "valeur": "Rénovation et décoration d'un restaurant"
+    },
+    {
+      "libelle": "Décoration",
+      "valeur": "Atelier Papon Architecture"
+    },
+    {
+      "libelle": "Période",
+      "valeur": "Printemps 2025"
+    },
+    {
+      "libelle": "Photos",
+      "valeur": "Décor livré en 2025"
+    }
+  ],
+  "photos": [
+    {
+      "image": "/src/assets/uploads/val-1.webp",
+      "legende": "La salle",
+      "alt": "Salle du restaurant, mur jaune, plafond sombre et décor végétal"
+    },
+    {
+      "image": "/src/assets/uploads/val-2.webp",
+      "legende": "Décor mural",
+      "alt": "Grand décor mural végétal derrière les tables"
+    },
+    {
+      "image": "/src/assets/uploads/val-3.webp",
+      "legende": "Mur signature",
+      "alt": "Mur jaune portant l'enseigne du restaurant"
+    },
+    {
+      "image": "/src/assets/uploads/val-4.webp",
+      "legende": "Vue sur le lac",
+      "alt": "Salle en contre-jour ouverte sur le lac"
+    },
+    {
+      "image": "/src/assets/uploads/val-5.webp",
+      "legende": "Vers le bar",
+      "alt": "Bar rouge et salle vus depuis l'entrée"
+    },
+    {
+      "image": "/src/assets/uploads/val-6.webp",
+      "legende": "Le site, château de Val",
+      "alt": "Le château de Val au bord du lac, au petit matin"
+    },
+    {
+      "image": "/src/assets/uploads/val-7.webp",
+      "legende": "La terrasse",
+      "alt": "Terrasse du restaurant face au château"
+    }
+  ],
+  "schemaPlafond": false,
+  "ordre": 50,
+  "publie": true
+}

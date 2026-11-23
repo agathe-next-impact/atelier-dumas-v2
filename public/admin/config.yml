@@ -1,0 +1,403 @@
+# Sveltia CMS · Atelier Dumas
+# Les limites déclarées ici doivent rester identiques à celles de
+# src/lib/content.ts (réglages et pages) et de src/content.config.ts (réalisations).
+
+backend:
+  name: github
+  repo: agathe-next-impact/atelier-dumas-v2
+  branch: main
+
+locale: fr
+site_url: /
+media_folder: src/assets/uploads
+public_folder: /src/assets/uploads
+
+media_libraries:
+  default:
+    config:
+      max_file_size: 15728640
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2400
+          height: 2400
+
+# Champs réutilisés
+x-seo: &seo
+  label: Référencement
+  name: seo
+  widget: object
+  collapsed: true
+  fields:
+    - { label: Titre dans Google, name: titre, widget: string, required: false, pattern: ['^.{0,70}$', '70 caractères maximum'], hint: 'Vide : titre général du site' }
+    - { label: Description dans Google, name: description, widget: text, required: false, pattern: ['^[\s\S]{0,170}$', '170 caractères maximum'] }
+x-t1: &t1 { label: Titre · ligne 1, name: titreLigne1, widget: string, pattern: ['^.{1,40}$', '40 caractères maximum'] }
+x-t2: &t2 { label: Titre · ligne 2, name: titreLigne2, widget: string, required: false, pattern: ['^.{0,40}$', '40 caractères maximum'] }
+x-sur: &sur { label: Surtitre, name: surtitre, widget: string, pattern: ['^.{1,60}$', '60 caractères maximum'] }
+x-img: &img { label: Image, name: image, widget: image }
+x-alt: &alt { label: Description de l'image, name: alt, widget: string, pattern: ['^.{5,}$', '5 caractères minimum'], hint: Lue par les lecteurs d'écran et par Google }
+x-leg: &leg { label: Légende, name: legende, widget: string, required: false, pattern: ['^.{0,70}$', '70 caractères maximum'] }
+x-fiche: &fiche
+  label: Fiche technique
+  name: fiche
+  widget: list
+  summary: '{{libelle}} · {{valeur}}'
+  fields:
+    - { label: Libellé, name: libelle, widget: string, pattern: ['^.{1,30}$', '30 caractères maximum'] }
+    - { label: Valeur, name: valeur, widget: string, pattern: ['^.{1,120}$', '120 caractères maximum'] }
+
+collections:
+  - name: site
+    label: Réglages du site
+    icon: settings
+    files:
+      - name: reglages
+        label: Réglages du site
+        file: src/content/site/reglages.json
+        fields:
+          - { label: Nom de l'entreprise, name: nom, widget: string }
+          - { label: Activité (titre des pages), name: baseline, widget: string }
+          - { label: Téléphone affiché, name: telephone, widget: string }
+          - { label: Téléphone pour l'appel, name: telephoneLien, widget: string, required: false, hint: 'Format international, ex. +33519980020' }
+          - { label: E-mail de contact, name: email, widget: string }
+          - label: Adresse du siège
+            name: siege
+            widget: object
+            fields:
+              - { label: Rue, name: rue, widget: string }
+              - { label: Code postal, name: codePostal, widget: string }
+              - { label: Ville, name: ville, widget: string }
+          - label: Établissement secondaire
+            name: etablissement
+            widget: object
+            fields:
+              - { label: Ville, name: ville, widget: string }
+              - { label: Département, name: departement, widget: string }
+          - label: Horaires
+            name: horaires
+            widget: list
+            min: 1
+            summary: '{{jours}} · {{heures}}'
+            fields:
+              - { label: Jours, name: jours, widget: string }
+              - { label: Heures, name: heures, widget: string }
+              - { label: Fermé, name: ferme, widget: boolean, default: false }
+          - { label: Forme juridique, name: formeJuridique, widget: string }
+          - { label: Capital social, name: capital, widget: string }
+          - { label: SIREN, name: siren, widget: string }
+          - { label: RCS, name: rcs, widget: string }
+          - { label: TVA intracommunautaire, name: tva, widget: string, required: false }
+          - { label: Direction de la publication, name: directionPublication, widget: string, required: false }
+          - { label: Hébergeur (nom et adresse), name: hebergeur, widget: text, required: false }
+          - { label: Adresse d'envoi du formulaire, name: formulaireEndpoint, widget: string, required: false, hint: 'Adresse fournie par le service de formulaire. Vide : le formulaire ouvre la messagerie du visiteur' }
+          - { label: Dossier de capacités (PDF), name: dossierCapacites, widget: file, required: false, media_folder: /public/documents, public_folder: /documents }
+          - { label: Lien LinkedIn, name: lienLinkedin, widget: string, required: false }
+          - { label: Étapes de l'écran de chargement, name: chargement, widget: list, min: 2, max: 10, field: { label: Étape, name: etape, widget: string, pattern: ['^.{1,40}$', '40 caractères maximum'] } }
+          - label: Appel final (bas de chaque page)
+            name: appel
+            widget: object
+            fields:
+              - *sur
+              - *t1
+              - *t2
+              - { label: Bouton, name: bouton, widget: string, pattern: ['^.{1,40}$', '40 caractères maximum'] }
+          - label: Pied de page
+            name: pied
+            widget: object
+            fields:
+              - { label: Lignes de présentation, name: lignes, widget: list, max: 4, field: { label: Ligne, name: ligne, widget: string } }
+              - { label: Mention de fin, name: mention, widget: string }
+          - label: Référencement général
+            name: seo
+            widget: object
+            fields:
+              - { label: Titre dans Google, name: titre, widget: string, pattern: ['^.{10,70}$', '10 à 70 caractères'] }
+              - { label: Description dans Google, name: description, widget: text, pattern: ['^[\s\S]{50,170}$', '50 à 170 caractères'] }
+              - { label: Image de partage, name: imagePartage, widget: image, hint: 'Paysage, 1200 × 630 px minimum' }
+
+  - name: pages
+    label: Pages
+    icon: description
+    files:
+      - name: accueil
+        label: 1 · Accueil
+        file: src/content/pages/accueil.json
+        fields:
+          - *seo
+          - label: Premier écran
+            name: hero
+            widget: object
+            fields:
+              - { label: Titre · ligne 1, name: titreLigne1, widget: string, pattern: ['^.{1,28}$', '28 caractères maximum'] }
+              - { label: Titre · ligne 2, name: titreLigne2, widget: string, pattern: ['^.{1,28}$', '28 caractères maximum'] }
+              - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,260}$', '260 caractères maximum'] }
+              - { label: Bouton, name: bouton, widget: string }
+              - { label: Coordonnées affichées, name: coordonnees, widget: string, required: false }
+              - label: Photos du diaporama
+                name: diapos
+                widget: list
+                min: 1
+                max: 6
+                summary: '{{legende}}'
+                fields: [*img, *alt, *leg]
+          - { label: Bandeau défilant, name: bandeau, widget: list, min: 2, max: 10, field: { label: Mot, name: mot, widget: string } }
+          - label: Manifeste
+            name: manifeste
+            widget: object
+            fields:
+              - *sur
+              - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,260}$', '260 caractères maximum'] }
+              - { label: Bouton, name: bouton, widget: string }
+              - *img
+              - *alt
+              - *leg
+          - label: Quatre métiers (titre)
+            name: metiers
+            widget: object
+            hint: Les quatre cartes reprennent les métiers de la page Savoir-faire
+            fields:
+              - *t1
+              - *t2
+              - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,200}$', '200 caractères maximum'] }
+          - label: Chiffres clés
+            name: chiffres
+            widget: object
+            fields:
+              - *sur
+              - *t1
+              - *t2
+              - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,260}$', '260 caractères maximum'] }
+              - label: Chiffres
+                name: items
+                widget: list
+                min: 6
+                max: 6
+                summary: '{{prefixe}}{{valeur}}{{suffixe}} · {{libelle}}'
+                fields:
+                  - { label: Valeur, name: valeur, widget: number, value_type: int, min: 0 }
+                  - { label: Préfixe, name: prefixe, widget: string, required: false }
+                  - { label: Suffixe, name: suffixe, widget: string, required: false, hint: 'Ex. « /9 », « km »' }
+                  - { label: Libellé, name: libelle, widget: string, pattern: ['^.{1,60}$', '60 caractères maximum'] }
+          - label: Sur le terrain
+            name: terrain
+            widget: object
+            fields:
+              - { label: Titre, name: titre, widget: string }
+              - { label: Bouton, name: bouton, widget: string }
+              - label: Trois réalisations mises en avant
+                name: projets
+                widget: relation
+                collection: realisations
+                value_field: '{{slug}}'
+                display_fields: [titre]
+                search_fields: [titre, lieu]
+                multiple: true
+                min: 3
+                max: 3
+                hint: Chaque réalisation choisie doit être publiée et avoir au moins une photo
+
+      - name: savoir-faire
+        label: 2 · Savoir-faire
+        file: src/content/pages/savoir-faire.json
+        fields:
+          - *seo
+          - label: Introduction
+            name: intro
+            widget: object
+            fields:
+              - *sur
+              - *t1
+              - *t2
+              - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,320}$', '320 caractères maximum'] }
+              - *img
+              - *alt
+              - *leg
+          - label: Métiers
+            name: metiers
+            widget: list
+            min: 4
+            max: 4
+            summary: '{{nom}}'
+            fields:
+              - { label: Nom, name: nom, widget: string, pattern: ['^.{1,20}$', '20 caractères maximum'] }
+              - { label: Accroche, name: accroche, widget: string, pattern: ['^.{1,60}$', '60 caractères maximum'] }
+              - { label: Résumé (carte de l'accueil), name: resume, widget: string, pattern: ['^.{1,110}$', '110 caractères maximum'] }
+              - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,260}$', '260 caractères maximum'] }
+              - { label: Points clés, name: points, widget: list, min: 2, max: 5, field: { label: Point, name: point, widget: string, pattern: ['^.{1,60}$', '60 caractères maximum'] } }
+              - { label: Pictogramme, name: pictogramme, widget: select, options: [{ label: Plâtrerie, value: platrerie }, { label: Isolation, value: isolation }, { label: Peinture, value: peinture }, { label: Revêtements, value: revetements }] }
+              - *img
+              - *alt
+              - *leg
+          - { label: Mention en bas de chaque métier, name: piedMetier, widget: string, required: false }
+          - label: Rénovation énergétique
+            name: rge
+            widget: object
+            fields:
+              - *sur
+              - *t1
+              - *t2
+              - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,400}$', '400 caractères maximum'] }
+              - label: Qualifications
+                name: qualifications
+                widget: list
+                min: 1
+                max: 8
+                summary: '{{nom}} · {{code}}'
+                fields:
+                  - { label: Intitulé, name: nom, widget: string, pattern: ['^.{1,80}$', '80 caractères maximum'] }
+                  - { label: Code, name: code, widget: string }
+              - { label: Validité, name: validite, widget: string, pattern: ['^.{1,90}$', '90 caractères maximum'] }
+              - *img
+              - *alt
+              - *leg
+          - label: Méthode de chantier
+            name: methode
+            widget: object
+            fields:
+              - { label: Titre, name: titre, widget: string }
+              - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,160}$', '160 caractères maximum'] }
+              - label: Étapes
+                name: etapes
+                widget: list
+                min: 5
+                max: 5
+                summary: '{{titre}}'
+                fields:
+                  - { label: Titre, name: titre, widget: string, pattern: ['^.{1,30}$', '30 caractères maximum'] }
+                  - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,160}$', '160 caractères maximum'] }
+
+      - name: realisations-page
+        label: 3 · Réalisations (introduction)
+        file: src/content/pages/realisations.json
+        fields:
+          - *seo
+          - label: Introduction
+            name: intro
+            widget: object
+            fields:
+              - *sur
+              - *t1
+              - *t2
+              - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,320}$', '320 caractères maximum'] }
+              - { label: Aide sous le texte, name: aide, widget: string, required: false }
+          - { label: Mention quand un chantier n'a pas de photo, name: sansPhoto, widget: string }
+
+      - name: atelier
+        label: 4 · L'atelier
+        file: src/content/pages/atelier.json
+        fields:
+          - *seo
+          - label: Équipe
+            name: equipe
+            widget: object
+            fields: [*sur, *t1, *t2, { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,400}$', '400 caractères maximum'] }, *fiche, *img, *alt, *leg]
+          - label: Direction
+            name: direction
+            widget: object
+            fields:
+              - { label: Étiquette, name: etiquette, widget: string }
+              - { label: Nom et fonction, name: nom, widget: string }
+              - { label: Citation, name: citation, widget: text, pattern: ['^[\s\S]{1,200}$', '200 caractères maximum'] }
+              - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,300}$', '300 caractères maximum'] }
+              - { label: Distinction, name: distinction, widget: string, required: false, pattern: ['^.{0,200}$', '200 caractères maximum'] }
+              - label: Parcours
+                name: parcours
+                widget: list
+                min: 4
+                max: 4
+                summary: '{{date}} · {{texte}}'
+                fields:
+                  - { label: Date, name: date, widget: string, pattern: ['^.{1,14}$', '14 caractères maximum'] }
+                  - { label: Texte, name: texte, widget: string, pattern: ['^.{1,90}$', '90 caractères maximum'] }
+              - *img
+              - *alt
+              - *leg
+          - label: Territoire
+            name: territoire
+            widget: object
+            fields:
+              - *sur
+              - *t1
+              - *t2
+              - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,400}$', '400 caractères maximum'] }
+              - { label: Légende de la carte, name: legendeCarte, widget: string }
+              - label: Communes de la carte
+                name: villes
+                widget: list
+                min: 1
+                summary: '{{nom}} · {{type}}'
+                fields:
+                  - { label: Commune, name: nom, widget: string }
+                  - { label: Latitude, name: latitude, widget: number, value_type: float }
+                  - { label: Longitude, name: longitude, widget: number, value_type: float }
+                  - { label: Type, name: type, widget: select, options: [{ label: Siège, value: siege }, { label: Établissement, value: etablissement }, { label: Chantier, value: chantier }] }
+                  - { label: Étiquette à gauche du point, name: etiquetteAGauche, widget: boolean, default: false }
+          - label: Comptoir
+            name: comptoir
+            widget: object
+            fields:
+              - *sur
+              - *t1
+              - *t2
+              - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,400}$', '400 caractères maximum'] }
+              - { label: Image 1, name: image1, widget: image }
+              - { label: Description de l'image 1, name: alt1, widget: string, pattern: ['^.{5,}$', '5 caractères minimum'] }
+              - { label: Image 2, name: image2, widget: image }
+              - { label: Description de l'image 2, name: alt2, widget: string, pattern: ['^.{5,}$', '5 caractères minimum'] }
+
+      - name: contact
+        label: 5 · Contact
+        file: src/content/pages/contact.json
+        fields:
+          - *seo
+          - *sur
+          - *t1
+          - *t2
+          - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,260}$', '260 caractères maximum'] }
+          - { label: Profils proposés, name: profils, widget: list, min: 1, field: { label: Profil, name: profil, widget: string } }
+          - { label: Natures de travaux proposées, name: travaux, widget: list, min: 1, field: { label: Travaux, name: nature, widget: string } }
+          - { label: Aide dans le champ « Votre projet », name: aideMessage, widget: string }
+          - { label: Bouton (ouverture de la messagerie), name: bouton, widget: string }
+          - { label: Bouton (envoi par service de formulaire), name: boutonEnvoi, widget: string }
+          - { label: Note sous le formulaire, name: noteMessagerie, widget: text }
+          - { label: Note après clic, name: noteSecours, widget: text }
+          - { label: Page de confirmation · titre, name: confirmationTitre, widget: string }
+          - { label: Page de confirmation · texte, name: confirmationTexte, widget: text }
+
+  - name: realisations
+    label: Réalisations
+    label_singular: Réalisation
+    icon: construction
+    folder: src/content/realisations
+    extension: json
+    format: json
+    create: true
+    slug: '{{titre}}'
+    identifier_field: titre
+    summary: '{{ordre}} · {{titre}} · {{lieu}}'
+    sortable_fields: [ordre, titre]
+    fields:
+      - { label: Titre, name: titre, widget: string, pattern: ['^.{2,70}$', '2 à 70 caractères'] }
+      - { label: Lieu, name: lieu, widget: string, pattern: ['^.{1,90}$', '90 caractères maximum'], hint: 'Ex. « Ydes · Cantal (15) »' }
+      - { label: Catégorie, name: categorie, widget: select, options: [Public, Privé] }
+      - { label: Type de chantier, name: type, widget: select, options: [Construction, Rénovation, Réhabilitation, Aménagement] }
+      - { label: Période, name: periode, widget: string, pattern: ['^.{1,20}$', '20 caractères maximum'] }
+      - { label: Texte, name: texte, widget: text, pattern: ['^[\s\S]{1,420}$', '420 caractères maximum'] }
+      - <<: *fiche
+        max: 6
+        hint: 'Maître d''ouvrage, opération, lots, période. 6 lignes maximum'
+      - label: Photos
+        name: photos
+        widget: list
+        required: false
+        max: 12
+        summary: '{{legende}}'
+        hint: La première photo sert de couverture. Paysage conseillé
+        fields:
+          - *img
+          - { label: Légende, name: legende, widget: string, pattern: ['^.{1,60}$', '60 caractères maximum'] }
+          - *alt
+      - { label: Afficher le schéma de plafond abaissé, name: schemaPlafond, widget: boolean, default: false, hint: Utilisé seulement si le chantier n'a aucune photo }
+      - { label: Ordre d'affichage, name: ordre, widget: number, value_type: int, default: 10 }
+      - { label: Publiée, name: publie, widget: boolean, default: true }

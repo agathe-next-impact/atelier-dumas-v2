@@ -1,0 +1,15 @@
+---
+import logo from '../assets/brand/logo.svg';
+import { site } from '../lib/content';
+---
+
+<div class="boot" id="boot" aria-hidden="true" transition:persist="boot" data-etapes={JSON.stringify(site.chargement)}>
+  <div class="bx">
+    <img class="logo" src={logo.src} alt="" width="210" height="184" />
+    <div class="mono">
+      <span class="dim" id="bootn">001</span>
+      <span id="bootstep">{site.chargement[0]}</span>
+      <span class="acc"><span id="bootpc">0</span> %</span>
+    </div>
+  </div>
+</div>

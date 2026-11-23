@@ -1,0 +1,71 @@
+{
+  "titre": "Salle des fêtes La Grange",
+  "lieu": "Madic · Cantal (15)",
+  "categorie": "Public",
+  "type": "Rénovation",
+  "periode": "2026",
+  "texte": "Rénovation énergétique de la salle socio-culturelle, installée dans une ancienne grange en pierre. Plâtrerie et peinture : des volumes clairs, un vert tendre en fond de scène, des détails soignés.",
+  "fiche": [
+    {
+      "libelle": "Maître d'ouvrage",
+      "valeur": "Commune de Madic"
+    },
+    {
+      "libelle": "Opération",
+      "valeur": "Rénovation énergétique de la salle socio-culturelle"
+    },
+    {
+      "libelle": "Lot",
+      "valeur": "Plâtrerie, peinture · 112 425,00 € HT"
+    },
+    {
+      "libelle": "Période",
+      "valeur": "2026"
+    }
+  ],
+  "photos": [
+    {
+      "image": "/src/assets/uploads/madic-1.webp",
+      "legende": "La grande salle",
+      "alt": "Grande salle vue vers la scène, murs vert tendre et crème"
+    },
+    {
+      "image": "/src/assets/uploads/madic-2.webp",
+      "legende": "Vers la mezzanine",
+      "alt": "Grande salle vue vers la mezzanine et l'escalier"
+    },
+    {
+      "image": "/src/assets/uploads/madic-3.webp",
+      "legende": "Mezzanine et bar",
+      "alt": "Escalier, mezzanine et bar sous le plafond à panneaux"
+    },
+    {
+      "image": "/src/assets/uploads/madic-4.webp",
+      "legende": "La scène",
+      "alt": "Scène encadrée de vert, luminaires circulaires"
+    },
+    {
+      "image": "/src/assets/uploads/madic-5.webp",
+      "legende": "La grange, côté parvis",
+      "alt": "Façade en pierre de La Grange et son extension contemporaine"
+    },
+    {
+      "image": "/src/assets/uploads/madic-6.webp",
+      "legende": "Vue d'approche",
+      "alt": "La Grange vue depuis l'allée"
+    },
+    {
+      "image": "/src/assets/uploads/madic-7.webp",
+      "legende": "Détail, niche et assise",
+      "alt": "Niche murale et assise bois"
+    },
+    {
+      "image": "/src/assets/uploads/madic-8.webp",
+      "legende": "Détail, embrasure",
+      "alt": "Embrasure de fenêtre peinte en vert"
+    }
+  ],
+  "schemaPlafond": false,
+  "ordre": 30,
+  "publie": true
+}

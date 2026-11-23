@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "titre": "L'atelier",
+    "description": "Une équipe de treize collaborateurs à Bort-les-Orgues, reprise en janvier 2025 et dirigée par Lætitia Dumas."
+  },
+  "equipe": {
+    "surtitre": "L'atelier",
+    "titreLigne1": "Une reprise,",
+    "titreLigne2": "une équipe",
+    "texte": "Créé en décembre 2024, Atelier Dumas a repris en janvier 2025 l'agence de Bort-les-Orgues de la société Viallant Loge. Les neuf salariés ont poursuivi l'aventure et l'équipe compte aujourd'hui treize collaborateurs.",
+    "image": "/src/assets/uploads/equipe.webp",
+    "alt": "L'équipe d'Atelier Dumas réunie devant la vitrine de l'atelier à Bort-les-Orgues",
+    "legende": "L'équipe · septembre 2026",
+    "fiche": [
+      {
+        "libelle": "Effectif",
+        "valeur": "13 collaborateurs"
+      },
+      {
+        "libelle": "Métiers",
+        "valeur": "Plâtrerie, isolation, peinture, revêtements"
+      },
+      {
+        "libelle": "Clientèle",
+        "valeur": "Particuliers, professionnels, collectivités"
+      }
+    ]
+  },
+  "direction": {
+    "etiquette": "Direction",
+    "nom": "Lætitia Dumas, présidente",
+    "citation": "Plus de vingt ans de bâtiment, une formation en économie de la construction, et une entreprise reprise avec toute son équipe.",
+    "texte": "Lætitia Dumas dirige l'atelier depuis sa création. Elle suit elle-même les études, les prix et la relation avec les maîtres d'ouvrage.",
+    "distinction": "2026 · Lauréate corrézienne du concours « 101 femmes entrepreneures », prix Coup de cœur Nouvelle-Aquitaine",
+    "image": "/src/assets/uploads/atelier-angle.webp",
+    "alt": "Vitrine de l'atelier vue depuis l'avenue de la Gare, sous les collines de Bort-les-Orgues",
+    "legende": "Bort-les-Orgues · Corrèze",
+    "parcours": [
+      {
+        "date": "Déc. 2024",
+        "texte": "Création d'Atelier Dumas"
+      },
+      {
+        "date": "Janv. 2025",
+        "texte": "Reprise de l'agence de Bort-les-Orgues"
+      },
+      {
+        "date": "Juin 2025",
+        "texte": "Quatre qualifications Qualibat RGE"
+      },
+      {
+        "date": "Aujourd'hui",
+        "texte": "13 collaborateurs, 3 départements"
+      }
+    ]
+  },
+  "territoire": {
+    "surtitre": "Territoire",
+    "titreLigne1": "À cheval sur",
+    "titreLigne2": "trois départements",
+    "texte": "Depuis Bort-les-Orgues, les équipes interviennent en Corrèze, dans le Cantal et dans le Puy-de-Dôme, dans un rayon d'une cinquantaine de kilomètres.",
+    "legendeCarte": "Carte schématique · siège, établissement et chantiers récents",
+    "villes": [
+      {
+        "nom": "Bort-les-Orgues",
+        "latitude": 45.4,
+        "longitude": 2.497,
+        "type": "siege",
+        "etiquetteAGauche": false
+      },
+      {
+        "nom": "Lanobre",
+        "latitude": 45.438,
+        "longitude": 2.533,
+        "type": "chantier",
+        "etiquetteAGauche": false
+      },
+      {
+        "nom": "Madic",
+        "latitude": 45.376,
+        "longitude": 2.459,
+        "type": "chantier",
+        "etiquetteAGauche": true
+      },
+      {
+        "nom": "Ydes",
+        "latitude": 45.348,
+        "longitude": 2.437,
+        "type": "chantier",
+        "etiquetteAGauche": true
+      },
+      {
+        "nom": "Saignes",
+        "latitude": 45.333,
+        "longitude": 2.474,
+        "type": "chantier",
+        "etiquetteAGauche": false
+      },
+      {
+        "nom": "Trizac",
+        "latitude": 45.254,
+        "longitude": 2.539,
+        "type": "etablissement",
+        "etiquetteAGauche": false
+      },
+      {
+        "nom": "Chalvignac",
+        "latitude": 45.243,
+        "longitude": 2.257,
+        "type": "chantier",
+        "etiquetteAGauche": false
+      },
+      {
+        "nom": "Picherande",
+        "latitude": 45.463,
+        "longitude": 2.77,
+        "type": "chantier",
+        "etiquetteAGauche": true
+      }
+    ]
+  },
+  "comptoir": {
+    "surtitre": "Le comptoir",
+    "titreLigne1": "Un atelier,",
+    "titreLigne2": "et un négoce",
+    "texte": "Au 301 avenue de la Gare, l'atelier vend aussi les produits qu'il met en œuvre : peintures de façade, écologiques, professionnelles et décoratives. Marques Zolpan et Unikalo.",
+    "image1": "/src/assets/uploads/atelier-enseigne.webp",
+    "alt1": "Panneau de façade : plâtrerie peinture, des finitions qui font la différence",
+    "image2": "/src/assets/uploads/atelier-vitrine.webp",
+    "alt2": "Reflets dans la vitrine de l'atelier, motif d'entrelacs de la marque"
+  }
+}

@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import Fig from '../components/Fig.astro';
+import Carte from '../components/Carte.astro';
+import { pages, site } from '../lib/content';
+const p = pages.atelier;
+---
+
+<Base page="atelier" nom="L'atelier" titre={p.seo.titre} description={p.seo.description}>
+  <section class="panel team">
+    <div class="sheet">
+      <Fig src={p.equipe.image} alt={p.equipe.alt} legende={p.equipe.legende} eager />
+      <div class="cell txt bl">
+        <div class="mono dim" data-r>[03] {p.equipe.surtitre}</div>
+        <div>
+          <h1 data-split style="font-size:clamp(32px,min(4.2vw,8vh),68px)">{p.equipe.titreLigne1}<br />{p.equipe.titreLigne2}</h1>
+          <p class="lead" data-r style="margin-top:20px;--i:2">{p.equipe.texte}</p>
+        </div>
+        <dl class="spec mono" data-r style="--i:3">
+          {p.equipe.fiche.map((f) => (<><dt>{f.libelle}</dt><dd>{f.valeur}</dd></>))}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel boss">
+    <div class="sheet">
+      <Fig src={p.direction.image} alt={p.direction.alt} legende={p.direction.legende} />
+      <div class="txt bl">
+        <div class="tag mono bb" style="padding:12px 16px"><span>{p.direction.etiquette}</span><span>{p.direction.nom}</span></div>
+        <div class="mid">
+          <div class="quote" data-split data-fill>{p.direction.citation}</div>
+          <p data-r style="--i:2">{p.direction.texte}</p>
+          {p.direction.distinction && (
+            <p class="mono" data-r style="--i:3;color:var(--ink)"><span class="acc">◆</span> {p.direction.distinction}</p>
+          )}
+        </div>
+        <div class="tl bt" data-r style="--i:4">
+          {p.direction.parcours.map((j, i) => <div class:list={[{ bl: i > 0 }]}><b>{j.date}</b>{j.texte}</div>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel terr">
+    <div class="sheet">
+      <div class="cell txt">
+        <div class="mono dim" data-r>[{p.territoire.surtitre}]</div>
+        <div>
+          <h2 data-split>{p.territoire.titreLigne1}<br />{p.territoire.titreLigne2}</h2>
+          <p data-r style="margin-top:18px;--i:2">{p.territoire.texte}</p>
+        </div>
+        <dl class="spec mono" data-r style="--i:3">
+          <dt>Siège</dt><dd>{site.siege.rue}<br />{site.siege.codePostal} {site.siege.ville}</dd>
+          <dt>Établissement</dt><dd>{site.etablissement.ville} ({site.etablissement.departement})</dd>
+        </dl>
+      </div>
+      <div class="map bl" data-r><Carte villes={p.territoire.villes} legende={p.territoire.legendeCarte} /></div>
+    </div>
+  </section>
+
+  <section class="panel shop">
+    <div class="sheet">
+      <Fig src={p.comptoir.image1} alt={p.comptoir.alt1} largeur={1100} />
+      <Fig src={p.comptoir.image2} alt={p.comptoir.alt2} class="bl" i={1} largeur={1100} />
+      <div class="cell txt bl">
+        <div class="mono dim" data-r>[{p.comptoir.surtitre}]</div>
+        <div>
+          <h2 data-split>{p.comptoir.titreLigne1}<br />{p.comptoir.titreLigne2}</h2>
+          <p data-r style="margin-top:18px;--i:2">{p.comptoir.texte}</p>
+        </div>
+        <div class="hours mono" data-r style="--i:3">
+          {site.horaires.map((h) => <div><span class:list={[{ dim: h.ferme }]}>{h.jours}</span><span class:list={[{ dim: h.ferme }]}>{h.heures}</span></div>)}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

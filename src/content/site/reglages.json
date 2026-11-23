@@ -1,0 +1,72 @@
+{
+  "nom": "Atelier Dumas",
+  "baseline": "Plâtrerie, peinture, isolation",
+  "telephone": "05 19 98 00 20",
+  "telephoneLien": "+33519980020",
+  "email": "laetitia@atelierdumas19.fr",
+  "siege": {
+    "rue": "301 avenue de la Gare",
+    "codePostal": "19110",
+    "ville": "Bort-les-Orgues"
+  },
+  "etablissement": {
+    "ville": "Trizac",
+    "departement": "Cantal"
+  },
+  "horaires": [
+    {
+      "jours": "Lundi à jeudi",
+      "heures": "9 h à 12 h · 14 h à 18 h",
+      "ferme": false
+    },
+    {
+      "jours": "Vendredi",
+      "heures": "9 h à 12 h · 14 h à 17 h",
+      "ferme": false
+    },
+    {
+      "jours": "Samedi, dimanche",
+      "heures": "Fermé",
+      "ferme": true
+    }
+  ],
+  "formeJuridique": "SASU",
+  "capital": "20 000 €",
+  "siren": "938 194 990",
+  "rcs": "RCS Brive",
+  "tva": "FR02938194990",
+  "directionPublication": "Lætitia Dumas",
+  "hebergeur": "",
+  "formulaireEndpoint": "",
+  "dossierCapacites": "",
+  "lienLinkedin": "",
+  "chargement": [
+    "Relevé des supports",
+    "Protection du chantier",
+    "Pose des ossatures",
+    "Isolation",
+    "Plaques et bandes",
+    "Enduits et ponçage",
+    "Impression",
+    "Finitions"
+  ],
+  "appel": {
+    "surtitre": "Un projet, un lot, une consultation",
+    "titreLigne1": "Parlons de",
+    "titreLigne2": "votre chantier",
+    "bouton": "Demander un devis"
+  },
+  "pied": {
+    "lignes": [
+      "Plâtrerie, peinture, isolation",
+      "Intérieur et extérieur",
+      "Qualibat RGE"
+    ],
+    "mention": "Bort-les-Orgues · Corrèze"
+  },
+  "seo": {
+    "titre": "Atelier Dumas · Plâtrerie, peinture, isolation à Bort-les-Orgues",
+    "description": "Plâtrerie, peinture, isolation et revêtements à Bort-les-Orgues. Particuliers, professionnels et collectivités en Corrèze, Cantal et Puy-de-Dôme. Qualibat RGE.",
+    "imagePartage": "/src/assets/uploads/madic-1.webp"
+  }
+}

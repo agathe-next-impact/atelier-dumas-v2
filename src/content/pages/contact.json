@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "titre": "Contact",
+    "description": "Demandez un devis à Atelier Dumas : 05 19 98 00 20, 301 avenue de la Gare, 19110 Bort-les-Orgues."
+  },
+  "surtitre": "Contact",
+  "titreLigne1": "Parlons de",
+  "titreLigne2": "votre chantier",
+  "texte": "Un devis pour votre maison, un lot à chiffrer, une consultation en cours : dites-nous où, quoi et pour quand.",
+  "profils": [
+    "Un particulier",
+    "Un professionnel",
+    "Une collectivité",
+    "Un architecte ou maître d'œuvre"
+  ],
+  "travaux": [
+    "Peinture intérieure ou extérieure",
+    "Plâtrerie, cloisons, plafonds",
+    "Isolation",
+    "Ravalement de façade",
+    "Revêtements de murs et de sols",
+    "Plusieurs lots"
+  ],
+  "aideMessage": "Surface, état des lieux, échéance souhaitée",
+  "bouton": "Préparer l'e-mail",
+  "boutonEnvoi": "Envoyer la demande",
+  "noteMessagerie": "Le bouton ouvre votre messagerie avec le message déjà rédigé.",
+  "noteSecours": "Votre messagerie devrait s'ouvrir avec le message prêt à envoyer. Si rien ne se passe, écrivez-nous ou appelez-nous directement.",
+  "confirmationTitre": "Demande envoyée",
+  "confirmationTexte": "Merci. Nous revenons vers vous rapidement."
+}

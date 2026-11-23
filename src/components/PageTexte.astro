@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+interface Props { page: string; nom: string; surtitre: string; titreLigne1: string; titreLigne2?: string; indexation?: boolean }
+const { page, nom, surtitre, titreLigne1, titreLigne2 = '', indexation = true } = Astro.props;
+---
+
+<Base page={page} nom={nom} titre={nom} finNue indexation={indexation}>
+  <section class="panel texte">
+    <div class="sheet">
+      <div class="cell l">
+        <div class="mono dim" data-r>[{surtitre}]</div>
+        <h1 data-split style="font-size:clamp(30px,min(4.2vw,8vh),68px)">{titreLigne1}{titreLigne2 && <><br />{titreLigne2}</>}</h1>
+        <a class="btn mono" href="/" data-r style="align-self:flex-start"><span>Retour à l'accueil</span><span>→</span></a>
+      </div>
+      <div class="cell r bl" data-r><slot /></div>
+    </div>
+  </section>
+</Base>

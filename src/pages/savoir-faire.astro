@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import Fig from '../components/Fig.astro';
+import { pages, pad } from '../lib/content';
+const p = pages.savoirFaire;
+const n = p.metiers.length;
+---
+
+<Base page="savoir-faire" nom="Savoir-faire" titre={p.seo.titre} description={p.seo.description}>
+  <section class="panel title">
+    <div class="sheet">
+      <div class="cell l">
+        <div class="mono dim" data-r>[01] {p.intro.surtitre}</div>
+        <div>
+          <h1 data-split>{p.intro.titreLigne1}<br />{p.intro.titreLigne2}</h1>
+          <p class="lead" data-r style="margin-top:20px;--i:2">{p.intro.texte}</p>
+        </div>
+        <div class="idx" data-r style="--i:3">
+          {p.metiers.map((m, i) => (
+            <a href={`#metier-${i + 1}`}><span class="mono n">[{pad(i + 1)}]</span><span class="t">{m.nom}</span><span class="mono">↓</span></a>
+          ))}
+        </div>
+      </div>
+      <Fig src={p.intro.image} alt={p.intro.alt} legende={p.intro.legende} class="bl" eager />
+    </div>
+  </section>
+
+  {p.metiers.map((m, i) => (
+    <section class:list={['panel', 'metier', { alt: i % 2 === 0 }]} id={`metier-${i + 1}`}>
+      <div class="sheet">
+        <Fig src={m.image} alt={m.alt} legende={m.legende} />
+        <div class="txt">
+          <div class="tag mono bb" style="padding:12px 16px"><span>{m.accroche}</span><span>[{pad(i + 1)} / {pad(n)}]</span></div>
+          <div class="mid">
+            <h2 data-split>{m.nom}</h2>
+            <p class="lead" data-r style="--i:1">{m.texte}</p>
+            <ul data-r style="--i:2">{m.points.map((pt) => <li>{pt}</li>)}</ul>
+          </div>
+          <div class="bt" style="padding:12px 16px;display:flex;justify-content:space-between;gap:12px">
+            <span class="mono dim">{p.piedMetier}</span>
+            <a class="mono acc" href="/contact/">Demander un devis →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="panel rge">
+    <div class="sheet">
+      <div class="l">
+        <div class="mono dim" data-r>[{pad(n + 1)}] {p.rge.surtitre}</div>
+        <h2 data-split>{p.rge.titreLigne1}<br />{p.rge.titreLigne2}</h2>
+        <p data-r style="--i:1">{p.rge.texte}</p>
+        <div class="qual mono" data-r style="--i:2">
+          {p.rge.qualifications.map((q) => <div><span>{q.nom}</span><span>{q.code}</span></div>)}
+        </div>
+        <div class="mono dim" data-r style="--i:3">{p.rge.validite}</div>
+      </div>
+      <Fig src={p.rge.image} alt={p.rge.alt} legende={p.rge.legende} class="bl" />
+    </div>
+  </section>
+
+  <section class="panel steps">
+    <div class="sheet">
+      <div class="cell bb" style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
+        <h2 data-split>{p.methode.titre}</h2>
+        <p data-r>{p.methode.texte}</p>
+      </div>
+      <div class="grid">
+        {p.methode.etapes.map((e, i) => (
+          <div class:list={['step', { bl: i > 0 }]}>
+            <span class="mono dim">Étape {pad(i + 1)}</span>
+            <div>
+              <div class="big" data-r style={`--i:${i}`}>{pad(i + 1)}</div>
+              <h3 data-split>{e.titre}</h3>
+              <p data-r style={`--i:${i + 2}`}>{e.texte}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,34 @@
+{
+  "titre": "Salle socio-culturelle",
+  "lieu": "Ydes · Cantal (15)",
+  "categorie": "Public",
+  "type": "Rénovation",
+  "periode": "2025",
+  "texte": "Rénovation énergétique. Les plafonds existants, hauts de près de 8 m, ont été abaissés à 5 m pour renforcer l'isolation et réduire le volume à chauffer.",
+  "fiche": [
+    {
+      "libelle": "Maître d'ouvrage",
+      "valeur": "Commune d'Ydes"
+    },
+    {
+      "libelle": "Opération",
+      "valeur": "Rénovation énergétique de la salle socio-culturelle"
+    },
+    {
+      "libelle": "Lot 1",
+      "valeur": "Plâtrerie, isolation · 64 520,00 € HT"
+    },
+    {
+      "libelle": "Lot 2",
+      "valeur": "Peintures, signalétique · 31 663,20 € HT"
+    },
+    {
+      "libelle": "Période",
+      "valeur": "2025"
+    }
+  ],
+  "photos": [],
+  "schemaPlafond": true,
+  "ordre": 60,
+  "publie": true
+}

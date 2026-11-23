@@ -1,0 +1,136 @@
+{
+  "seo": {
+    "titre": "Savoir-faire",
+    "description": "Plâtrerie, isolation, peinture, revêtements : les quatre métiers d'Atelier Dumas et ses quatre qualifications Qualibat RGE."
+  },
+  "intro": {
+    "surtitre": "Savoir-faire",
+    "titreLigne1": "Savoir-",
+    "titreLigne2": "faire",
+    "texte": "Le second œuvre de finition, intérieur et extérieur. Quatre métiers portés par la même équipe, et quatre qualifications Qualibat RGE pour la rénovation énergétique.",
+    "image": "/src/assets/uploads/deco-1.webp",
+    "alt": "Salle d'accueil petite enfance : aplats géométriques jaune et vert d'eau sur les murs et les portes",
+    "legende": "Aplats géométriques · peinture décorative"
+  },
+  "metiers": [
+    {
+      "nom": "Plâtrerie",
+      "accroche": "Des supports plans, prêts à recevoir la finition",
+      "resume": "Cloisons, doublages, plafonds et faux-plafonds, enduits.",
+      "texte": "Cloisons, doublages, plafonds et faux-plafonds : la plâtrerie donne au bâtiment ses volumes et ses supports. Un travail de précision, dont dépend toute la finition.",
+      "points": [
+        "Cloisons et doublages",
+        "Plafonds et faux-plafonds",
+        "Enduits et bandes",
+        "Plâtrerie-peinture en lot unique"
+      ],
+      "image": "/src/assets/uploads/madic-7.webp",
+      "alt": "Détail de plâtrerie : niche, assise bois et parement sombre dans la salle La Grange à Madic",
+      "legende": "Salle La Grange · Madic",
+      "pictogramme": "platrerie"
+    },
+    {
+      "nom": "Isolation",
+      "accroche": "Par l'intérieur comme par l'extérieur",
+      "resume": "Murs, rampants, combles perdus, planchers bas. Qualibat RGE.",
+      "texte": "Isolation thermique par l'intérieur et par l'extérieur, des combles aux planchers bas. Quatre qualifications Qualibat RGE, pour des travaux éligibles aux aides.",
+      "points": [
+        "Isolation des murs par l'extérieur",
+        "Isolation par l'intérieur, rampants, plafonds",
+        "Combles perdus",
+        "Planchers bas"
+      ],
+      "image": "/src/assets/uploads/pole-5.webp",
+      "alt": "Isolation par l'extérieur en cours de pose sur une façade du pôle enfance jeunesse à Ydes",
+      "legende": "Isolation par l'extérieur en cours · Ydes",
+      "pictogramme": "isolation"
+    },
+    {
+      "nom": "Peinture",
+      "accroche": "Intérieure, extérieure, décorative",
+      "resume": "Peinture en bâtiment, ravalement, peinture de façade, signalétique.",
+      "texte": "Peinture intérieure et extérieure, ravalement et peinture de façade, aplats décoratifs, pochoirs et signalétique. La couche que l'on voit, posée sur des supports que l'atelier a préparés.",
+      "points": [
+        "Peinture intérieure et extérieure",
+        "Ravalement et peinture de façade",
+        "Peinture décorative, pochoirs",
+        "Signalétique"
+      ],
+      "image": "/src/assets/uploads/deco-2.webp",
+      "alt": "Salle petite enfance aux murs peints d'aplats jaune et vert d'eau",
+      "legende": "Aplats de couleur · petite enfance",
+      "pictogramme": "peinture"
+    },
+    {
+      "nom": "Revêtements",
+      "accroche": "Murs et sols, jusqu'au dernier détail",
+      "resume": "Revêtements de murs et de sols, sols souples, enduits décoratifs.",
+      "texte": "Revêtements de murs et de sols, sols souples, enduits décoratifs. Le dernier lot du chantier, celui qui se voit et qui s'use : il se choisit et se pose avec soin.",
+      "points": [
+        "Sols souples",
+        "Revêtements muraux",
+        "Enduits décoratifs",
+        "Négoce de produits"
+      ],
+      "image": "/src/assets/uploads/deco-3.webp",
+      "alt": "Dortoir de crèche : sol souple gris, mur vert d'eau et porte vitrée",
+      "legende": "Sol souple et aplats de couleur",
+      "pictogramme": "revetements"
+    }
+  ],
+  "piedMetier": "Intérieur et extérieur",
+  "rge": {
+    "surtitre": "Rénovation énergétique",
+    "titreLigne1": "Qualibat RGE :",
+    "titreLigne2": "quatre qualifications",
+    "texte": "La mention RGE conditionne l'accès aux aides à la rénovation énergétique. Les quatre qualifications de l'atelier couvrent l'enveloppe du bâtiment, des combles aux planchers bas.",
+    "qualifications": [
+      {
+        "nom": "Isolation des murs par l'extérieur",
+        "code": "7131D112"
+      },
+      {
+        "nom": "Isolation par l'intérieur des murs, rampants ou plafonds",
+        "code": "4132D111"
+      },
+      {
+        "nom": "Isolation des combles perdus",
+        "code": "4132D114"
+      },
+      {
+        "nom": "Isolation des planchers bas",
+        "code": "4132D115"
+      }
+    ],
+    "validite": "Valables du 24 juin 2025 au 23 juin 2027 · Données ADEME",
+    "image": "/src/assets/uploads/pole-3.webp",
+    "alt": "Façade isolée par l'extérieur et enduite du pôle enfance jeunesse à Ydes",
+    "legende": "Isolation par l'extérieur · Pôle enfance jeunesse, Ydes"
+  },
+  "methode": {
+    "titre": "Méthode de chantier",
+    "texte": "Cinq étapes, les mêmes pour une pièce à repeindre et pour un lot de marché public.",
+    "etapes": [
+      {
+        "titre": "Échange et visite",
+        "texte": "On se déplace, on regarde les supports, on écoute le besoin."
+      },
+      {
+        "titre": "Devis détaillé",
+        "texte": "Chaque poste est décrit et chiffré, lot par lot."
+      },
+      {
+        "titre": "Planification",
+        "texte": "Les dates sont calées avec vous et avec les autres corps d'état."
+      },
+      {
+        "titre": "Exécution",
+        "texte": "Une même équipe suit le chantier, protégé et tenu propre."
+      },
+      {
+        "titre": "Réception et suivi",
+        "texte": "On fait le tour ensemble, on lève les réserves, on reste joignables."
+      }
+    ]
+  }
+}

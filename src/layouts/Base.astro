@@ -1,0 +1,88 @@
+---
+import '@fontsource/arimo/400.css';
+import '@fontsource/arimo/700.css';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/700.css';
+import '../styles/site.css';
+import { ClientRouter } from 'astro:transitions';
+import { getImage } from 'astro:assets';
+import Header from '../components/Header.astro';
+import Deco from '../components/Deco.astro';
+import Boot from '../components/Boot.astro';
+import Fin from '../components/Fin.astro';
+import { site } from '../lib/content';
+import { image } from '../lib/images';
+
+interface Props {
+  titre?: string;
+  description?: string;
+  page: string;
+  nom: string;
+  finNue?: boolean;
+  indexation?: boolean;
+}
+const { titre = '', description = '', page, nom, finNue = false, indexation = true } = Astro.props;
+const titrePage = titre ? `${titre} · ${site.nom} · ${site.baseline}` : site.seo.titre;
+const desc = description || site.seo.description;
+const canonique = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : null;
+const partage = await getImage({ src: image(site.seo.imagePartage), width: 1200, height: 630, format: 'jpg' });
+const imagePartage = Astro.site ? new URL(partage.src, Astro.site).href : partage.src;
+const donnees = {
+  '@context': 'https://schema.org',
+  '@type': 'HousePainter',
+  name: site.nom,
+  description: site.seo.description,
+  telephone: site.telephoneLien || site.telephone,
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.siege.rue,
+    postalCode: site.siege.codePostal,
+    addressLocality: site.siege.ville,
+    addressCountry: 'FR',
+  },
+  ...(Astro.site ? { url: Astro.site.href, image: imagePartage } : {}),
+};
+---
+
+<!doctype html>
+<html lang="fr" transition:animate="none">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titrePage}</title>
+    <meta name="description" content={desc} />
+    {!indexation && <meta name="robots" content="noindex" />}
+    {canonique && <link rel="canonical" href={canonique} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content={titrePage} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:image" content={imagePartage} />
+    {canonique && <meta property="og:url" content={canonique} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script type="application/ld+json" set:html={JSON.stringify(donnees)} />
+    <ClientRouter fallback="swap" />
+  </head>
+  <body>
+    <Boot />
+    <Header page={page} />
+    <Deco />
+    <div id="app">
+      <div class="rule t"><i class="plus a"></i><i class="plus z"></i></div>
+      <div class="rule b"><i class="plus a"></i><i class="plus z"></i></div>
+      <div class="rule l"></div>
+      <div class="rule r"></div>
+      <div class="pager mono" id="pager"><b>01</b> / 01</div>
+      <main class="view" data-page={page} data-name={nom}>
+        <slot />
+        <Fin nue={finNue} />
+      </main>
+    </div>
+    <script>
+      import '../scripts/site.ts';
+    </script>
+  </body>
+</html>

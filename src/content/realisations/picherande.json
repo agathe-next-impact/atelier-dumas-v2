@@ -1,0 +1,76 @@
+{
+  "titre": "Micro-crèche des Hautes Terres",
+  "lieu": "Picherande · Puy-de-Dôme (63)",
+  "categorie": "Public",
+  "type": "Aménagement",
+  "periode": "2025-2026",
+  "texte": "Aménagement d'une micro-crèche et de deux appartements locatifs dans une bâtisse du bourg. Plâtrerie, plafonds et peintures, jusqu'aux pochoirs réalisés en façade.",
+  "fiche": [
+    {
+      "libelle": "Maître d'ouvrage",
+      "valeur": "Commune de Picherande"
+    },
+    {
+      "libelle": "Opération",
+      "valeur": "Aménagement d'une micro-crèche et de 2 appartements locatifs"
+    },
+    {
+      "libelle": "Lot",
+      "valeur": "Plâtrerie, plafonds, peintures · 98 113,92 € HT"
+    },
+    {
+      "libelle": "Période",
+      "valeur": "2025-2026"
+    }
+  ],
+  "photos": [
+    {
+      "image": "/src/assets/uploads/picherande-1.webp",
+      "legende": "Salle de vie",
+      "alt": "Salle de vie de la micro-crèche, fresque florale et mobilier bas"
+    },
+    {
+      "image": "/src/assets/uploads/picherande-2.webp",
+      "legende": "Espace repas",
+      "alt": "Espace repas et menuiseries vert d'eau et orange"
+    },
+    {
+      "image": "/src/assets/uploads/picherande-3.webp",
+      "legende": "Jeux et rangements",
+      "alt": "Espace de jeux avec rangements et cloisons vitrées"
+    },
+    {
+      "image": "/src/assets/uploads/picherande-4.webp",
+      "legende": "Fresque florale",
+      "alt": "Coin d'éveil devant une fresque florale et un claustra bois"
+    },
+    {
+      "image": "/src/assets/uploads/picherande-5.webp",
+      "legende": "Coin d'éveil",
+      "alt": "Coin d'éveil et portes colorées"
+    },
+    {
+      "image": "/src/assets/uploads/picherande-6.webp",
+      "legende": "Façade et enseigne",
+      "alt": "Façade enduite avec lettrage micro-crèche et pochoirs"
+    },
+    {
+      "image": "/src/assets/uploads/picherande-7.webp",
+      "legende": "Pochoirs en façade",
+      "alt": "Deux silhouettes d'enfants peintes au pochoir en pied de façade"
+    },
+    {
+      "image": "/src/assets/uploads/picherande-8.webp",
+      "legende": "Appartement locatif",
+      "alt": "Pièce de vie d'un appartement, murs clairs et parquet"
+    },
+    {
+      "image": "/src/assets/uploads/picherande-9.webp",
+      "legende": "Terrasse d'un appartement",
+      "alt": "Terrasse avec vue sur le paysage"
+    }
+  ],
+  "schemaPlafond": false,
+  "ordre": 40,
+  "publie": true
+}

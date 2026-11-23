@@ -1,0 +1,31 @@
+---
+import symbole from '../assets/brand/symbole.svg';
+interface Props { page: string }
+const { page } = Astro.props;
+const liens = [
+  { href: '/savoir-faire/', id: 'savoir-faire', nom: 'Savoir-faire' },
+  { href: '/realisations/', id: 'realisations', nom: 'Réalisations' },
+  { href: '/atelier/', id: 'atelier', nom: "L'atelier" },
+  { href: '/contact/', id: 'contact', nom: 'Contact', cta: true },
+];
+---
+
+<header class="hdr">
+  <a class="brand" href="/" aria-label="Atelier Dumas, accueil">
+    <img src={symbole.src} alt="" width="32" height="32" /><span>Atelier</span><b>Dumas</b>
+  </a>
+  <nav class="nav mono" aria-label="Navigation principale">
+    {liens.map((l) => (
+      <a href={l.href} class:list={[{ cta: l.cta, on: page === l.id }]} aria-current={page === l.id ? 'page' : undefined}>{l.nom}</a>
+    ))}
+  </nav>
+  <button class="burger mono" id="burger" aria-expanded="false" aria-controls="menu">Menu</button>
+</header>
+<nav class="menu" id="menu" aria-label="Menu">
+  <a href="/">Accueil <span class="mono dim">[00]</span></a>
+  {liens.map((l, i) => (
+    <a href={l.href} class:list={[{ cta: l.cta }]}>
+      {l.nom} <span class:list={['mono', { dim: !l.cta }]}>{l.cta ? '→' : `[0${i + 1}]`}</span>
+    </a>
+  ))}
+</nav>

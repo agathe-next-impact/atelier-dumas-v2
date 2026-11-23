@@ -1,0 +1,52 @@
+---
+import logo from '../assets/brand/logo.svg';
+import { site, tel } from '../lib/content';
+interface Props { nue?: boolean }
+const { nue = false } = Astro.props;
+const a = site.appel;
+---
+
+<section class:list={['panel', 'end', { nu: nue }]}>
+  <div class="sheet">
+    {!nue && (
+      <div class="call">
+        <img class="logo" src={logo.src} alt={site.nom} width="170" height="149" data-r />
+        <div class="mono dim" data-r style="--i:1">[{a.surtitre}]</div>
+        <h2 data-split>{a.titreLigne1}<br />{a.titreLigne2}</h2>
+        <div class="btns" data-r style="--i:2;justify-content:center">
+          <a class="btn solid mono" href="/contact/"><span>{a.bouton}</span><span>→</span></a>
+          <a class="btn mono" href={tel()}><span>{site.telephone}</span><span>↗</span></a>
+        </div>
+      </div>
+    )}
+    <footer class:list={['foot', { bt: !nue }]}>
+      <div class="cell">
+        <span class="mono dim">{site.nom}</span>
+        {site.pied.lignes.map((l) => <span>{l}</span>)}
+      </div>
+      <div class="cell bl">
+        <span class="mono dim">Adresse</span>
+        <span>{site.siege.rue}</span>
+        <span>{site.siege.codePostal} {site.siege.ville}</span>
+        <span>Établissement à {site.etablissement.ville} ({site.etablissement.departement})</span>
+      </div>
+      <div class="cell bl">
+        <span class="mono dim">Contact</span>
+        <a href={tel()}>{site.telephone}</a>
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+        {site.lienLinkedin && <a href={site.lienLinkedin} rel="noopener">LinkedIn</a>}
+      </div>
+      <div class="cell bl">
+        <span class="mono dim">Plan du site</span>
+        <a href="/savoir-faire/">Savoir-faire</a>
+        <a href="/realisations/">Réalisations</a>
+        <a href="/atelier/">L'atelier</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="legal mono bt">
+        <span>© {new Date().getFullYear()} {site.nom} · {site.formeJuridique} au capital de {site.capital} · SIREN {site.siren} · {site.rcs}</span>
+        <span><a href="/mentions-legales/">Mentions légales</a> · <a href="/confidentialite/">Données personnelles</a> · {site.pied.mention}</span>
+      </div>
+    </footer>
+  </div>
+</section>

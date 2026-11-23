@@ -1,0 +1,75 @@
+{
+  "titre": "Pôle enfance jeunesse",
+  "lieu": "Ydes · Cantal (15)",
+  "categorie": "Public",
+  "type": "Construction",
+  "periode": "2025-2026",
+  "texte": "Un bâtiment existant et son extension à ossature bois, réunis en pôle enfance jeunesse. Deux lots confiés à l'atelier : l'enveloppe extérieure et tout le second œuvre intérieur.",
+  "fiche": [
+    {
+      "libelle": "Maître d'ouvrage",
+      "valeur": "Communauté de communes Sumène Artense"
+    },
+    {
+      "libelle": "Opération",
+      "valeur": "Construction d'un pôle enfance jeunesse"
+    },
+    {
+      "libelle": "Lot 1",
+      "valeur": "Ravalement, isolation par l'extérieur · 92 268,50 € HT"
+    },
+    {
+      "libelle": "Lot 2",
+      "valeur": "Plâtrerie, isolation, faux-plafonds, peintures · 229 512,70 € HT"
+    },
+    {
+      "libelle": "Période",
+      "valeur": "2025-2026"
+    }
+  ],
+  "photos": [
+    {
+      "image": "/src/assets/uploads/pole-2.webp",
+      "legende": "Vue d'ensemble en fin de chantier",
+      "alt": "Vue d'ensemble du pôle enfance jeunesse, bâtiment ancien et extension"
+    },
+    {
+      "image": "/src/assets/uploads/pole-1.webp",
+      "legende": "Façades isolées et enduites",
+      "alt": "Façade du bâtiment existant après isolation par l'extérieur et enduit, encadrements blancs"
+    },
+    {
+      "image": "/src/assets/uploads/pole-3.webp",
+      "legende": "Extension, enduit de finition",
+      "alt": "Façade de l'extension enduite, menuiseries sombres"
+    },
+    {
+      "image": "/src/assets/uploads/pole-4.webp",
+      "legende": "Cage d'escalier, peinture décorative",
+      "alt": "Cage d'escalier avec fresque colorée et garde-corps bois"
+    },
+    {
+      "image": "/src/assets/uploads/pole-5.webp",
+      "legende": "Isolation par l'extérieur en cours",
+      "alt": "Panneaux isolants en cours de pose sur une façade"
+    },
+    {
+      "image": "/src/assets/uploads/pole-6.webp",
+      "legende": "Ossature bois, mai 2025",
+      "alt": "Ossature bois et charpente de l'extension, ciel ouvert"
+    },
+    {
+      "image": "/src/assets/uploads/pole-7.webp",
+      "legende": "Isolation sous rampants",
+      "alt": "Isolant posé en plafond avant fermeture"
+    },
+    {
+      "image": "/src/assets/uploads/pole-8.webp",
+      "legende": "Pignon échafaudé",
+      "alt": "Pignon sous échafaudage pendant le ravalement"
+    }
+  ],
+  "schemaPlafond": false,
+  "ordre": 10,
+  "publie": true
+}

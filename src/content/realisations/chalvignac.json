@@ -1,0 +1,65 @@
+{
+  "titre": "Salle multi-activités",
+  "lieu": "Chalvignac · Cantal (15)",
+  "categorie": "Public",
+  "type": "Construction",
+  "periode": "2025",
+  "texte": "Une salle neuve sous une charpente en lamellé-collé cintré. L'atelier a réalisé les cloisons, l'isolation des rampants, les faux-plafonds et la peinture.",
+  "fiche": [
+    {
+      "libelle": "Maître d'ouvrage",
+      "valeur": "Commune de Chalvignac"
+    },
+    {
+      "libelle": "Opération",
+      "valeur": "Construction d'une salle multi-activités"
+    },
+    {
+      "libelle": "Lot",
+      "valeur": "Cloisons, isolation, faux-plafonds, peinture · 163 000,00 € HT"
+    },
+    {
+      "libelle": "Période",
+      "valeur": "2025"
+    },
+    {
+      "libelle": "Photos",
+      "valeur": "Chantier, avant et pendant"
+    }
+  ],
+  "photos": [
+    {
+      "image": "/src/assets/uploads/chalvignac-1.webp",
+      "legende": "Grande salle, septembre 2025",
+      "alt": "Grande salle sous arches en lamellé-collé, plafond bois et murs blancs"
+    },
+    {
+      "image": "/src/assets/uploads/chalvignac-2.webp",
+      "legende": "Murs et rampants finis",
+      "alt": "Murs et rampants peints en blanc entre les arches bois"
+    },
+    {
+      "image": "/src/assets/uploads/chalvignac-3.webp",
+      "legende": "Vue en enfilade",
+      "alt": "Vue en longueur de la salle, lumière des fenêtres de toit"
+    },
+    {
+      "image": "/src/assets/uploads/chalvignac-4.webp",
+      "legende": "Travaux en cours",
+      "alt": "Échafaudage roulant dans la salle en cours de travaux"
+    },
+    {
+      "image": "/src/assets/uploads/chalvignac-5.webp",
+      "legende": "Charpente avant couverture, mai 2025",
+      "alt": "Charpente cintrée à ciel ouvert avant la pose de la couverture"
+    },
+    {
+      "image": "/src/assets/uploads/chalvignac-6.webp",
+      "legende": "Isolation des rampants",
+      "alt": "Isolant et ossature métallique entre chevrons"
+    }
+  ],
+  "schemaPlafond": false,
+  "ordre": 20,
+  "publie": true
+}

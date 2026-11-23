@@ -1,0 +1,25 @@
+{
+  "name": "atelier-dumas",
+  "version": "2.0.0",
+  "description": "Site vitrine d'Atelier Dumas (Astro + Sveltia CMS)",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agathe-next-impact/atelier-dumas-v2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/agathe-next-impact/atelier-dumas-v2/issues"
+  },
+  "homepage": "https://github.com/agathe-next-impact/atelier-dumas-v2#readme",
+  "dependencies": {
+    "@fontsource/arimo": "^5.3.0",
+    "@fontsource/dm-sans": "^5.3.0",
+    "astro": "^7.4.13"
+  },
+  "private": true,
+  "type": "module"
+}
